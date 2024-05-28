@@ -1,3 +1,5 @@
+/* It's a React component that renders a form field based on the props passed to it */
+/* It's a React component that renders a form field based on the props passed to it. */
 import _ from 'lodash';
 import React from 'react';
 
@@ -23,38 +25,62 @@ export default class FormField extends React.Component {
             case 'checkbox':
                 return (
                     <div className="form-group form-checkbox">
-                        <input type="checkbox" id={name} name={name} {...attr} />
-                        {label && <label htmlFor={name}>{label}</label>}
+                        <input type="checkbox" id={name} name={name} {...attr} /> {label && <label htmlFor={name}> {label} </label>}{' '}
                     </div>
                 );
             case 'select':
                 return (
                     <div className="form-group">
-                        {label && <label htmlFor={name}>{label}</label>}
+                        {' '}
+                        {label && <label htmlFor={name}> {label} </label>}{' '}
                         <div className="form-select-wrap">
                             <select id={name} name={name} {...attr}>
-                                {defaultValue && <option value="">{defaultValue}</option>}
+                                {' '}
+                                {defaultValue && <option value=""> {defaultValue} </option>}{' '}
                                 {_.map(options, (option, index) => (
                                     <option key={index} value={option}>
-                                        {option}
+                                        {' '}
+                                        {option}{' '}
                                     </option>
-                                ))}
-                            </select>
-                        </div>
+                                ))}{' '}
+                            </select>{' '}
+                        </div>{' '}
                     </div>
                 );
             case 'textarea':
                 return (
                     <div className="form-group">
-                        {label && <label htmlFor={name}>{label}</label>}
-                        <textarea name={name} id={name} rows="7" {...(defaultValue ? { placeholder: defaultValue } : null)} {...attr} />
+                        {' '}
+                        {label && <label htmlFor={name}> {label} </label>}{' '}
+                        <textarea
+                            name={name}
+                            id={name}
+                            rows="7"
+                            {...(defaultValue
+                                ? {
+                                      placeholder: defaultValue
+                                  }
+                                : null)}
+                            {...attr}
+                        />{' '}
                     </div>
                 );
             default:
                 return (
                     <div className="form-group">
-                        {label && <label htmlFor={name}>{label}</label>}
-                        <input type={inputType} name={name} id={name} {...(defaultValue ? { placeholder: defaultValue } : null)} {...attr} />
+                        {' '}
+                        {label && <label htmlFor={name}> {label} </label>}{' '}
+                        <input
+                            type={inputType}
+                            name={name}
+                            id={name}
+                            {...(defaultValue
+                                ? {
+                                      placeholder: defaultValue
+                                  }
+                                : null)}
+                            {...attr}
+                        />{' '}
                     </div>
                 );
         }
